@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import Users from "./Users";
+import CustomerInfo from "./CustomerInfo";
+import {Link} from "react-router-dom";
 
 function CustomerSearchService(){
     const [id, setId] = useState('');
     let [modal, setModal] = useState(false);
-    // const [btnTxt, setBtnTxt] = useState("조회");
 
     const onChange = (e) => {
         setId(e.target.value);
@@ -29,10 +29,11 @@ function CustomerSearchService(){
                 setModal(!modal);
                 onReset();
             }}>{btnTextChanger()}</button>
-            {modal === true ? <Users id={id}/> : null}
+            {modal === true ? <CustomerInfo id={id}/> : null}
+            <Link to="/customer">
+                <button>고객관리서비스 홈으로</button>
+            </Link>
         </div>
-
-
     );
 }
 
