@@ -57,26 +57,26 @@ function CustomerEnrollService() {
                 <p>저장될 최종 고객정보입니다.</p>
                 <table>
                     <tbody>
-                    <tr>
-                        <td>고객이름</td>
-                        <td>{cust_NM}</td>
-                    </tr>
-                    <tr>
-                        <td>주민등록번호</td>
-                        <td>{ssn}</td>
-                    </tr>
-                    <tr>
-                        <td>전화번호</td>
-                        <td>{cust_PN}</td>
-                    </tr>
-                    <tr>
-                        <td>성별</td>
-                        <td>{sex}</td>
-                    </tr>
-                    <tr>
-                        <td>계좌번호</td>
-                        <td>{acc_NM}</td>
-                    </tr>
+                        <tr>
+                            <td>고객이름</td>
+                            <td>{cust_NM}</td>
+                        </tr>
+                        <tr>
+                            <td>주민등록번호</td>
+                            <td>{ssn}</td>
+                        </tr>
+                        <tr>
+                            <td>전화번호</td>
+                            <td>{cust_PN}</td>
+                        </tr>
+                        <tr>
+                            <td>성별</td>
+                            <td>{sex}</td>
+                        </tr>
+                        <tr>
+                            <td>계좌번호</td>
+                            <td>{acc_NM}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
