@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import CustomerInfoEnroll from "./CustomerInfoEnroll";
+import {Link} from "react-router-dom";
 
 function CustomerEnrollService() {
     const [inputs, setInputs] = useState({
@@ -9,7 +11,7 @@ function CustomerEnrollService() {
     });
 
     const {cust_NM, ssn, cust_PN, acc_NM} = inputs;
-    const [sex, setSex] = useState('남성');
+    const [sex, setSex] = useState('1');
     const onChangeSelected =(e) =>{
         setSex(e.target.value);
     };
@@ -28,17 +30,12 @@ function CustomerEnrollService() {
             cust_PN : '',
             acc_NM : ''
         })
-        setSex('남성')
-
+        setSex('1')
+        setDoEnroll(false)
     }
 
-    const blankCheck =()=>{
-        if (!cust_NM && !ssn && !cust_PN && !acc_NM){
+    const [doEnroll, setDoEnroll] = useState(false);
 
-            return true;
-        }
-        else return false;
-    }
 
     return (
         <div>
@@ -47,9 +44,9 @@ function CustomerEnrollService() {
                 <input name="ssn" placeholder="주민등록번호" onChange={onChange} value={ssn}/>
                 <input name="cust_PN" placeholder="전화번호" onChange={onChange} value={cust_PN}/>
                 <select value={sex} onChange={onChangeSelected}>
-                    <option key="Male" value="남성">남성</option>
-                    <option key="Female" value="여성">여성</option>
-                    <option key="Other" value="기타">기타</option>
+                    <option key="Male" value="1">남성</option>
+                    <option key="Female" value="0">여성</option>
+                    <option key="Other" value="2">기타</option>
                 </select>
                 <input name="acc_NM" placeholder="계좌번호" onChange={onChange} value={acc_NM}/>
             </div>
@@ -82,7 +79,16 @@ function CustomerEnrollService() {
             </div>
             <div>
                 <button onClick={onReset}>초기화</button>
-                <button>등록</button>
+                <button onClick={()=> setDoEnroll(!doEnroll)}>등록</button>
+            </div>
+            <div>
+                {doEnroll===true?<CustomerInfoEnroll cust_NM={cust_NM} ssn={ssn} cust_PN={cust_PN} sex={sex} acc_NM={acc_NM}/>
+                    :<p>Not Yet</p>}
+            </div>
+            <div>
+                <Link to="/customer">
+                    <button>고객관리서비스 홈으로</button>
+                </Link>
             </div>
         </div>
     );
