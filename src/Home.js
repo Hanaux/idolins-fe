@@ -4,12 +4,18 @@ function Home () {
 
     return (
             <div>
-                <Link to="/customer">
-                    <button>고객관리서비스</button>
-                </Link>
-                <Link to="/insurance">
-                    <button>보험관리서비스</button>
-                </Link>
+                <div>
+                    <h1>Idol Debut Insurance (Vehicle)</h1>
+                </div>
+                <div>
+                    <Link to="/customer">
+                        <button>고객관리서비스</button>
+                    </Link>
+                    <Link to="/insurance">
+                        <button>보험관리서비스</button>
+                    </Link>
+                </div>
+
             </div>
     );
 }
