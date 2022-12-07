@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import Users from "./Users";
+import InsuranceInfo from "./InsuranceInfo";
+import {Link} from "react-router-dom";
 
-function CustomerSearchService(){
+function InsuranceSearchService(){
     const [id, setId] = useState('');
     let [modal, setModal] = useState(false);
-    // const [btnTxt, setBtnTxt] = useState("조회");
 
     const onChange = (e) => {
         setId(e.target.value);
@@ -23,17 +23,18 @@ function CustomerSearchService(){
 
     return (
         <div>
-            <h1>고객정보 조회서비스</h1>
-            <input onChange={onChange} value={id} placeholder="고객 ID를 입력하세요" type='number'/>
+            <h1>보험정보  조회서비스</h1>
+            <input onChange={onChange} value={id} placeholder="보험 ID를 입력하세요" type='number'/>
             <button onClick={()=>{
                 setModal(!modal);
                 onReset();
             }}>{btnTextChanger()}</button>
-            {modal === true ? <Users id={id}/> : null}
+            {modal === true ? <InsuranceInfo id={id}/> : null}
+            <Link to="/insurance">
+                <button>보험관리서비스 홈으로</button>
+            </Link>
         </div>
-
-
     );
 }
 
-export default CustomerSearchService;
+export default InsuranceSearchService;

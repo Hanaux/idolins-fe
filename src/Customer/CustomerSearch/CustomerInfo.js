@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Users({id}) {
+function CustomerInfo({id}) {
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    // const custID = id;
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -15,7 +14,6 @@ function Users({id}) {
                 // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
                 const response = await axios.get(
-                    // 'https://jsonplaceholder.typicode.com/users'
                     `http://localhost:8080/customer/custinfo/${id}`
                 );
                 console.log(response.data);
@@ -61,14 +59,7 @@ function Users({id}) {
             </tbody>
 
         </table>
-        // <ul>
-        //     고객이름 : {users.cust_NM}
-        //     전화번호 : {users.cust_PN}
-        //     주민등록번호 : {users.ssn}
-        //     계좌번호 : {users.acc_NM}
-        //     고객성별 : {users.sex}
-        // </ul>
     );
 }
 
-export default Users;
+export default CustomerInfo;
