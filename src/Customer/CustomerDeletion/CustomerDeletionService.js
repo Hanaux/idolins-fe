@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import CustomerInfoDeletion from "./CustomerInfoDeletion";
+import {Button} from "react-bootstrap";
 
 function CustomerDeletionService() {
     const [id, setId] = useState('');
     let [modal, setModal] = useState(false);
+    const [btnDisable, setBtnDisable] = useState(true);
 
     const onChange = (e) => {
         setId(e.target.value);
@@ -20,19 +22,22 @@ function CustomerDeletionService() {
             setId('');
         }
     }
-
+    useEffect(()=>{
+        if(id>0) setBtnDisable(false)
+        else setBtnDisable(true)
+    },[id]);
     return (
-        <div>
-            <h1>고객정보 삭제서비스</h1>
-            <input onChange={onChange} value={id} placeholder="삭제할 고객 ID를 입력하세요" type='number'/>
-            <button onClick={()=>{
+        <div style={{display:"flex", flexDirection:"column"}}>
+            <div style={{display:"flex", justifyContent:"center"}}>
+            <input onChange={onChange} value={id} className="inputStyle"
+                   placeholder="삭제할 고객 ID를 입력하세요" type='number'/>
+            <Button  variant="search" className="SearchBtn" disabled={btnDisable}
+                onClick={()=>{
                 setModal(!modal);
                 onReset();
-            }}>{btnTextChanger()}</button>
+            }}>{btnTextChanger()}</Button>
+            </div>
             {modal === true ? <CustomerInfoDeletion id={id}/> : null}
-            <Link to="/customer">
-                <button>고객관리서비스 홈으로</button>
-            </Link>
         </div>
     );
 }

@@ -4,6 +4,8 @@ import {Button, Tab, Tabs} from "react-bootstrap";
 import CustomerSearchService from "./CustomerSearch/CustomerSearchService";
 import CustomerEnrollService from "./CustomerEnrollment/CustomerEnrollService";
 import CustomerDeletionService from "./CustomerDeletion/CustomerDeletionService";
+import CustomerEnrollService1 from "./CustomerEnrollment/CustomerEnrollService1";
+import CustomerUpdateService from "./CustomerUpdate/CustomerUpdateService";
 
 function CustomerServiceHome() {
     const [key, setKey] = useState('고객정보조회');
@@ -25,7 +27,7 @@ function CustomerServiceHome() {
                     <CustomerEnrollService />
                 </Tab>
                 <Tab eventKey="고객이름수정" title="고객정보수정">
-
+                    <CustomerUpdateService />
                 </Tab>
                 <Tab eventKey="고객정보삭제" title="고객정보삭제">
                     <CustomerDeletionService />

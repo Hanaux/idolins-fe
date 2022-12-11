@@ -67,3 +67,9 @@ div.tab-content {
   border: 1px solid grey;
   text-align: center;
 }
+.myForm {
+  max-width: 300px;
+  margin: 5px auto 0;
+  padding: 20px;
+  border: 1px solid lightgrey;
+}
