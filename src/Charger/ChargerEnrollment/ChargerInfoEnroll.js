@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function InsuranceInfoEnroll ({inputs}) {
+function ChargerInfoEnroll ({inputs}) {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     useEffect(() => {
-        const fetchIns = async () => {
+        const fetchCharger = async () => {
             try {
                 // 요청이 시작 할 때에는 error 와 users 를 초기화하고
                 setError(null);
@@ -14,7 +14,7 @@ function InsuranceInfoEnroll ({inputs}) {
                 setLoading(true);
                 console.log(inputs);
                 const response = await axios.post(
-                    `http://localhost:8080/insurance/insinfo/enrollment`,
+                    `http://localhost:8080/Charger/chargerinfo/enrollment`,
                     inputs
                 );
                 console.log(response.status);
@@ -25,14 +25,14 @@ function InsuranceInfoEnroll ({inputs}) {
 
         };
 
-        fetchIns();
+        fetchCharger();
     }, []);
 
     if (loading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     return (
-        <p>등록이 완료되었습니다</p>
+        <p>보험금 청구가 완료되었습니다.</p>
     );
 }
 
-export default InsuranceInfoEnroll;
+export default ChargerInfoEnroll;

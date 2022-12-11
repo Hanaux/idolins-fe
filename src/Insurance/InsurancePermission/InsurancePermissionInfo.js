@@ -11,6 +11,7 @@ function InsurancePermissionInfo({inputs}) {
                 setError(null);
                 // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
+                console.log(inputs);
                 const response = await axios.put(
                     `http://localhost:8080/insurance/insinfo/permission`,
                     inputs

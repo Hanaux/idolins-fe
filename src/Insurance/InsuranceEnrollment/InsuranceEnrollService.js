@@ -28,6 +28,7 @@ function InsuranceEnrollService() {
             ...inputs,
             [name] : value
         })
+        console.log(inputs);
     }
 
     const onReset =()=> {

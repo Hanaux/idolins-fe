@@ -10,6 +10,12 @@ function Home () {
             <Link to="/insurance">
                 <button>보험관리서비스</button>
             </Link>
+            <Link to="/charger">
+                <button>보험청구서비스</button>
+            </Link>
+            <Link to="/payment">
+                <button>보험산출서비스</button>
+            </Link>
         </div>
     );
 }
