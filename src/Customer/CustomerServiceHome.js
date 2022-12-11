@@ -1,32 +1,40 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useState} from "react";
+import "./CustomerServiceHome.css";
+import {Button, Tab, Tabs} from "react-bootstrap";
+import CustomerSearchService from "./CustomerSearch/CustomerSearchService";
+import CustomerEnrollService from "./CustomerEnrollment/CustomerEnrollService";
+import CustomerDeletionService from "./CustomerDeletion/CustomerDeletionService";
 
 function CustomerServiceHome() {
-
+    const [key, setKey] = useState('고객정보조회');
     return(
-        <div>
-            <div>고객관리서비스 홈입니다.</div>
-            <div>
-                <Link to="/customer/cust-search">
-                    <button>고객정보조회</button>
-                </Link>
-                <Link to="/customer/cust-enrollment">
-                    <button>고객정보등록</button>
-                </Link>
-                <Link to="/customer/cust-deletion">
-                    <button>고객정보삭제</button>
-                </Link>
-                <Link>
-                    <button>고객정보수정</button>
-                </Link>
+        <div className="InnerHomeInterface">
+            <div className="IdolInsuranceLogo">
+                <img alt="IdolDebut Vehicle Insurance" src="/img/idoldebutins_logo.png"
+                     className="InnerLogo"/>
             </div>
-            <div>
-                <Link to="/">
-                    <button>홈으로 가기</button>
-                </Link>
-            </div>
+            <Tabs
+                id="controlled-tab-example"
+                activeKey={key}
+                onSelect={(k) => setKey(k)}
+            >
+                <Tab eventKey="고객정보조회" title="고객정보조회">
+                    <CustomerSearchService />
+                </Tab>
+                <Tab eventKey="고객정보등록" title="고객정보등록">
+                    <CustomerEnrollService />
+                </Tab>
+                <Tab eventKey="고객이름수정" title="고객정보수정">
+
+                </Tab>
+                <Tab eventKey="고객정보삭제" title="고객정보삭제">
+                    <CustomerDeletionService />
+                </Tab>
+            </Tabs>
+            <Button href="/" variant="flat">IdolDebut Ins.</Button>
         </div>
     );
+
 }
 
 export default CustomerServiceHome;

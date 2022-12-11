@@ -3,3 +3,67 @@
   width: 64px;
   height: 64px;
 }
+
+.InnerLogo{
+  width: 20vh;
+  object-fit: contain;
+  margin: 5vh;
+}
+.nav-tabs .nav-link {
+  color: green;
+}
+.nav-tabs .nav-link:hover {
+  color: white;
+  background-color: green;
+  opacity: 0.5;
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom: solid 4px white !important;
+  background-color: green !important;
+  color: white !important;
+  opacity: 1.0 !important;
+}
+
+div.tab-content {
+  border-top: 1px solid green;
+  border-bottom: 1px solid green;
+  margin : 10px; padding: 10vh;
+}
+
+
+.btn-flat{
+  border-color: green !important;
+  color: green !important;
+}
+
+.btn-flat:hover{
+  opacity: 0.5;
+  background-color: green !important;
+  color: white !important;
+}
+
+.btn-search{
+  color: green !important;
+  margin: 0 auto;
+}
+
+.btn-search:hover{
+  opacity: 0.5;
+}
+
+.InnerHomeInterface{
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+  min-height: 100vh;
+  flex-direction: column;
+}
+.ErrStatus {
+  margin: 3vh 0;
+  padding: 5px;
+  white-space: pre-wrap;
+  color: grey;
+  border: 1px solid grey;
+  text-align: center;
+}

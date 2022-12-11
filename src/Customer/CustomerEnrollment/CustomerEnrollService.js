@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import CustomerInfoEnroll from "./CustomerInfoEnroll";
 import {Link} from "react-router-dom";
+import {Button, Table} from "react-bootstrap";
 
 function CustomerEnrollService() {
     const [inputs, setInputs] = useState({
@@ -9,7 +10,7 @@ function CustomerEnrollService() {
         cust_PN : '',
         acc_NM : ''
     });
-
+    const [btnDisable, setBtnDisable] = useState(true);
     const {cust_NM, ssn, cust_PN, acc_NM} = inputs;
     const [sex, setSex] = useState('1');
     const onChangeSelected =(e) =>{
@@ -34,25 +35,34 @@ function CustomerEnrollService() {
         setDoEnroll(false)
     }
 
+    useEffect(()=> {
+        if(inputs.acc_NM !== '' && inputs.ssn !== '' && inputs.cust_PN!=='' && inputs.cust_NM!==''){
+            setBtnDisable(false)
+        }else {setBtnDisable(true)}
+    },[inputs]);
+
     const [doEnroll, setDoEnroll] = useState(false);
 
 
     return (
-        <div>
+        <div style={{justifyContent:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
             <div>
-                <input name="cust_NM" placeholder="고객 이름" onChange={onChange} value={cust_NM}/>
-                <input name="ssn" placeholder="주민등록번호" onChange={onChange} value={ssn}/>
-                <input name="cust_PN" placeholder="전화번호" onChange={onChange} value={cust_PN}/>
-                <select value={sex} onChange={onChangeSelected}>
+                <input name="cust_NM" placeholder="고객 이름" onChange={onChange} value={cust_NM} className="inputStyle"/>
+                <input name="ssn" placeholder="주민등록번호" onChange={onChange} value={ssn} className="inputStyle"/>
+                <input name="cust_PN" placeholder="전화번호" onChange={onChange} value={cust_PN} className="inputStyle"/>
+                <select value={sex} onChange={onChangeSelected} style={{height: "40px", borderColor:"green"}}>
                     <option key="Male" value="1">남성</option>
                     <option key="Female" value="0">여성</option>
                     <option key="Other" value="2">기타</option>
                 </select>
-                <input name="acc_NM" placeholder="계좌번호" onChange={onChange} value={acc_NM}/>
+                <input name="acc_NM" placeholder="계좌번호" onChange={onChange} value={acc_NM} className="inputStyle"/>
             </div>
-            <div>
-                <p>저장될 최종 고객정보입니다.</p>
-                <table>
+            <div style={{
+                alignItems:"center", display:"flex", flexDirection:"column",
+                marginTop: "3vh"
+            }}>
+                <h3 style={{fontWeight:"bold", color:"green"}}>저장될 최종 고객정보입니다.</h3>
+                <Table bordered hover className="TableStyle">
                     <tbody>
                         <tr>
                             <td>고객이름</td>
@@ -75,20 +85,17 @@ function CustomerEnrollService() {
                             <td>{acc_NM}</td>
                         </tr>
                     </tbody>
-                </table>
+                </Table>
             </div>
             <div>
-                <button onClick={onReset}>초기화</button>
-                <button onClick={()=> setDoEnroll(!doEnroll)}>등록</button>
+                <Button onClick={onReset} variant="flat">초기화</Button>
+                <Button onClick={()=> setDoEnroll(!doEnroll)} variant="success"
+                        disabled={btnDisable}
+                >등록</Button>
             </div>
             <div>
                 {doEnroll===true?<CustomerInfoEnroll cust_NM={cust_NM} ssn={ssn} cust_PN={cust_PN} sex={sex} acc_NM={acc_NM}/>
-                    :<p>Not Yet</p>}
-            </div>
-            <div>
-                <Link to="/customer">
-                    <button>고객관리서비스 홈으로</button>
-                </Link>
+                    :<p></p>}
             </div>
         </div>
     );

@@ -1,0 +1,38 @@
+.HomeInterface{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.IdolInsuranceLogo{
+    text-align: center;
+}
+@media (prefers-reduced-motion: no-preference){
+    .LogoImage{
+        width: 50vh;
+        object-fit: contain;
+        animation: App-logo-spin infinite 10s linear;
+    }
+}
+@keyframes App-logo-spin {
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+
+
+.BasicHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.ServiceNav{
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.ServiceVer{
+    color: green;
+}

@@ -1,22 +1,25 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {Button, ButtonGroup} from "react-bootstrap";
+import "./Home.css";
 function Home () {
 
     return (
-            <div>
-                <div>
-                    <h1>Idol Debut Insurance (Vehicle)</h1>
+        <div className="BasicHome">
+            <div className="HomeInterface">
+                <div className="IdolInsuranceLogo">
+                    <img alt="IdolDebut Vehicle Insurance" src="/img/idoldebutins_logo.png"
+                    className="LogoImage"/>
                 </div>
-                <div>
-                    <Link to="/customer">
-                        <button>고객관리서비스</button>
-                    </Link>
-                    <Link to="/insurance">
-                        <button>보험관리서비스</button>
-                    </Link>
+                <div className="ServiceNav">
+                    <ButtonGroup vertical>
+                        <Button href="/insurance" variant="flat">보험관리서비스</Button>
+                        <Button href="/customer" variant="flat">고객관리서비스</Button>
+                    </ButtonGroup>
+                    <p className="ServiceVer">beta version</p>
                 </div>
-
             </div>
+        </div>
     );
 }
 
