@@ -11,12 +11,14 @@ import InsuranceServiceHome from "./Insurance/InsuranceServiceHome";
 import InsuranceEnrollService from "./Insurance/InsuranceEnrollment/InsuranceEnrollService";
 import InsurancePermissionService from "./Insurance/InsurancePermission/InsurancePermissionService";
 import InsuranceDeleteService from "./Insurance/InsuranceDelete/InsuranceDeleteService";
+import WhoAreWe from "./WhoAreWe";
 function App() {
   return (
   <div className="App">
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>}/>
+      <Route path="/who-r-we" element={<WhoAreWe/>}/>
       <Route path="/customer" element={<CustomerServiceHome/>} />
       <Route path="/customer/cust-search" element={<CustomerSearchService/>} />
       <Route path="/customer/cust-enrollment" element={<CustomerEnrollService/>}/>

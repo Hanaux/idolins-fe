@@ -34,13 +34,15 @@ function CustomerEnrollService() {
     }
 
     const validateSsn =()=> {
-        const ssnVal = [ssn.at(2), ssn.at(3), ssn.at(4), ssn.at(5)];
+        const ssnVal = [ssn.at(2), ssn.at(3), ssn.at(4), ssn.at(5), ssn.at(0), ssn.at(6)];
         if(ssn === '') return false;
         if(ssn.length !== 13) return false;
         if(ssnVal.at(0) > 1) return false;
         if(ssnVal.at(0)==1 && ssnVal.at(1)>2) return false;
         if(ssnVal.at(2)>3) return false;
         if(ssnVal.at(2)==3 && ssnVal.at(3)>1) return false;
+        if(ssnVal.at(4)==9 && ssnVal.at(5)>2) return false;
+        if(ssnVal.at(4)==0 && ssnVal.at(5)<3) return false;
          return true;
     }
 
@@ -69,7 +71,7 @@ function CustomerEnrollService() {
 
     return (
         <div style={{justifyContent:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-            <div>
+            <div style={{justifyContent:"center", display:"flex", alignItems:"center", flexWrap:"wrap"}}>
                 <input name="cust_NM" placeholder="고객 이름" onChange={onChange} value={cust_NM} className="inputStyle" type='text'/>
                 <input name="ssn" placeholder="주민등록번호 '-' 없이"  onInput={(e) => {
                     if (e.target.value.length > e.target.maxLength)
@@ -96,11 +98,11 @@ function CustomerEnrollService() {
                         </tr>
                         <tr>
                             <td>주민등록번호</td>
-                            <td>{ssn}</td>
+                            <td>{ssn.slice(0,6)}-{ssn.slice(6,13)}</td>
                         </tr>
                         <tr>
                             <td>전화번호</td>
-                            <td>{cust_PN}</td>
+                            <td>{cust_PN.slice(0,3)}-{cust_PN.slice(3,7)}-{cust_PN.slice(7,11)}</td>
                         </tr>
                         <tr>
                             <td>성별</td>
@@ -120,7 +122,8 @@ function CustomerEnrollService() {
                 >등록</Button>
             </div>
             <div>
-                {doEnroll===true?<CustomerInfoEnroll cust_NM={cust_NM} ssn={ssn} cust_PN={cust_PN} sex={sex} acc_NM={acc_NM}/>
+                {doEnroll===true?<CustomerInfoEnroll cust_NM={cust_NM} ssn={ssn}
+                    cust_PN={cust_PN} sex={sex} acc_NM={acc_NM}/>
                     :<p></p>}
                 {btnDisable?<p style={{color:'red'}}>유효하지 않은 값이 있습니다. 다시 확인해주세요</p>:<p></p>}
             </div>

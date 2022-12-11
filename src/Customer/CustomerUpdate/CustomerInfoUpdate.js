@@ -49,7 +49,7 @@ function CustomerInfoUpdate({id, name}){
         </div>);
         ;
     }
-    return <div>고객정보 등록이 완료되었습니다.</div>
+    return <div>해당고객의 정보가 수정되었습니다.</div>
 }
 
 export default CustomerInfoUpdate;

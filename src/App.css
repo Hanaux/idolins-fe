@@ -42,7 +42,17 @@ div.tab-content {
   background-color: green !important;
   color: white !important;
 }
-
+.btn-flat-over{
+  opacity: 0.5;
+  background-color: green !important;
+  color: white !important;
+}
+.btn-flat-over:hover{
+  border-color: green !important;
+  background-color: white !important;
+  color: green !important;
+  font-weight: bold ;
+}
 .btn-search{
   color: green !important;
   margin: 0 auto;
@@ -72,4 +82,15 @@ div.tab-content {
   margin: 5px auto 0;
   padding: 20px;
   border: 1px solid lightgrey;
+}
+.CardStyle {
+  width: 18rem;
+}
+.CardForm{
+  display: flex;
+  /*align-items: center;*/
+  justify-content: center;
+  flex-wrap: wrap;
+  /*flexWrap:"wrap",*/
+  /*min-height: 90vh;*/
 }

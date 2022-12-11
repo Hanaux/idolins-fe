@@ -4,7 +4,6 @@ import {Button, Tab, Tabs} from "react-bootstrap";
 import CustomerSearchService from "./CustomerSearch/CustomerSearchService";
 import CustomerEnrollService from "./CustomerEnrollment/CustomerEnrollService";
 import CustomerDeletionService from "./CustomerDeletion/CustomerDeletionService";
-import CustomerEnrollService1 from "./CustomerEnrollment/CustomerEnrollService1";
 import CustomerUpdateService from "./CustomerUpdate/CustomerUpdateService";
 
 function CustomerServiceHome() {

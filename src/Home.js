@@ -5,6 +5,7 @@ import "./Home.css";
 function Home () {
 
     return (
+        <div>
         <div className="BasicHome">
             <div className="HomeInterface">
                 <div className="IdolInsuranceLogo">
@@ -12,12 +13,18 @@ function Home () {
                     className="LogoImage"/>
                 </div>
                 <div className="ServiceNav">
+                    <p className="ServiceVer">v1.0.0-beta</p>
                     <ButtonGroup vertical>
                         <Button href="/insurance" variant="flat">보험관리서비스</Button>
                         <Button href="/customer" variant="flat">고객관리서비스</Button>
+                        <Button href="/who-r-we" variant="flat-over">Info</Button>
                     </ButtonGroup>
-                    <p className="ServiceVer">beta version</p>
                 </div>
+            </div>
+        </div>
+            <div className="footer">
+                <p style={{margin:'0'}}>ERP Project of Distributed Programming Class</p>
+                COPYRIGHTⓒ(C) MYONGJI UNIV. ALL RIGHTS RESERVED.
             </div>
         </div>
     );

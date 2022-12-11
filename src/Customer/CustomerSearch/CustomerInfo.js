@@ -65,11 +65,12 @@ function CustomerInfo({id}) {
             </tr>
             <tr>
                 <td>전화번호</td>
-                <td>{users.cust_PN}</td>
+                <td>{users.cust_PN.slice(0,3)}-{users.cust_PN.slice(3,7)}
+                -{users.cust_PN.slice(7,11)}</td>
             </tr>
             <tr>
                 <td>주민등록번호</td>
-                <td>{users.ssn}</td>
+                <td>{users.ssn.slice(0,6)}-{users.ssn.slice(6,13)}</td>
             </tr>
             <tr>
                 <td>계좌번호</td>

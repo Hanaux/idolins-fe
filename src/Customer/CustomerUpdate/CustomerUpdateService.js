@@ -34,7 +34,7 @@ function CustomerUpdateService(){
     },[id]);
     return (
         <div style={{display:"flex", flexDirection:"column"}}>
-            <div style={{display:"flex", justifyContent:"center"}}>
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", flexWrap:"wrap"}}>
                 <input onChange={onChangeId} value={id} className="inputStyle"
                        placeholder="고객 ID를 입력하세요" type='number'/>
                 <input onChange={onChangeName} value={name} className="inputStyle"

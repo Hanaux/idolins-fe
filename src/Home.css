@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 95vh;
 }
 .ServiceNav{
     margin-top: 50px;
@@ -35,4 +35,11 @@
 }
 .ServiceVer{
     color: green;
+}
+.footer{
+    margin: 0;
+    text-align: center;
+    color: grey;
+    font-size: 12px;
+    max-height: 5vh;
 }
