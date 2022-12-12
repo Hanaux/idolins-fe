@@ -1,0 +1,48 @@
+
+.ChargerButton{
+    margin-top: 10vh;
+}
+.ChargerServiceTitle{
+    background-color: green;
+    color: white;
+    padding: 3vh;
+    border-radius: 10px;
+}
+.SearchBtn{
+    height: 40px;
+    font-size: 20px;
+    font-weight: bolder !important;
+}
+.SearchBtn:disabled{
+    border: none;
+    color: grey !important;
+}
+.inputStyle{
+    height: 40px;
+    margin: 0 auto;
+    border-color: green;
+    border-width: 1px;
+    border-radius: 5px;
+}
+.TableStyleSearch{
+    margin-top: 10px;
+    text-align: center;
+}
+.TableStyleSearch >tbody >tr >td:nth-child(2n-1) {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+.TableStyle{
+    width: 40vw !important;
+    text-align: center;
+}
+.TableStyle >tbody >tr >td:nth-child(2n-1) {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    width: 10vw !important;
+}
+.EnrollFormStyle {
+    display: block;
+}

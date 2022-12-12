@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import axios, {post} from 'axios';
+import axios from 'axios';
 
 function CustomerInfoEnroll({cust_NM, ssn, cust_PN, sex, acc_NM}) {
     const [loading, setLoading] = useState(false);

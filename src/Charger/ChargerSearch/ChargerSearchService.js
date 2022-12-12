@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
+import ChargerInfo from "./ChargerInfo";
 import {Link} from "react-router-dom";
-import CustomerInfoDeletion from "./CustomerInfoDeletion";
 import {Button} from "react-bootstrap";
 
-function CustomerDeletionService() {
+function ChargerSearchService(){
     const [id, setId] = useState('');
     let [modal, setModal] = useState(false);
     const [btnDisable, setBtnDisable] = useState(true);
@@ -15,7 +15,7 @@ function CustomerDeletionService() {
         if (modal) {
             return "초기화";
         }
-        else return "삭제";
+        else return "조회";
     }
     const onReset=()=>{
         if (modal) {
@@ -30,17 +30,20 @@ function CustomerDeletionService() {
     return (
         <div style={{display:"flex", flexDirection:"column"}}>
             <div style={{display:"flex", justifyContent:"center"}}>
-            <input onChange={onChange} value={id} className="inputStyle"
-                   placeholder="삭제할 고객 ID를 입력하세요" type='number'/>
-            <Button  variant="search" className="SearchBtn" disabled={btnDisable}
-                onClick={()=>{
-                setModal(!modal);
-                onReset();
-            }}>{btnTextChanger()}</Button>
+                <input onChange={onChange} value={id} className="inputStyle"
+                       placeholder="청구번호를 입력하세요" type='number'/>
+                <Button variant="search" className="SearchBtn" disabled={btnDisable}
+
+                        onClick={()=>{
+                            setModal(!modal);
+                            onReset();
+                        }}
+                >{btnTextChanger()}</Button>
             </div>
-            {modal === true ? <CustomerInfoDeletion id={id}/> : null}
+            {modal === true ? <ChargerInfo id={id}/> : null}
         </div>
+
     );
 }
 
-export default CustomerDeletionService;
+export default ChargerSearchService;

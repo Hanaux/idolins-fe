@@ -11,6 +11,14 @@ import InsuranceServiceHome from "./Insurance/InsuranceServiceHome";
 import InsuranceEnrollService from "./Insurance/InsuranceEnrollment/InsuranceEnrollService";
 import InsurancePermissionService from "./Insurance/InsurancePermission/InsurancePermissionService";
 import InsuranceDeleteService from "./Insurance/InsuranceDelete/InsuranceDeleteService";
+import ChargerServiceHome from "./Charger/ChargerServiceHome";
+import ChargerEnrollService from "./Charger/ChargerEnrollment/ChargerEnrollService";
+import ChargerSearchService from "./Charger/ChargerSearch/ChargerSearchService";
+import ChargerDeleteService from "./Charger/ChargerDelete/ChargerDeleteService";
+import InsurancePayServiceHome from "./InsurancePay/InsurancePayServiceHome";
+import CalculationService from "./InsurancePay/Calculation/CalculationService";
+import PaymentService from "./InsurancePay/Payment/PaymentService";
+import PaycheckService from "./InsurancePay/Paycheck/PaycheckService";
 import WhoAreWe from "./WhoAreWe";
 function App() {
   return (
@@ -28,6 +36,14 @@ function App() {
       <Route path="/insurance/ins-enrollment" element={<InsuranceEnrollService/>}/>
       <Route path="/insurance/ins-permission" element={<InsurancePermissionService/>}/>
       <Route path="/insurance/ins-delete" element={<InsuranceDeleteService/>}/>
+      <Route path="/charger" element={<ChargerServiceHome/>}/>
+      <Route path="/charger/charge-search" element={<ChargerSearchService/>}/>
+      <Route path="/charger/charge-enrollment" element={<ChargerEnrollService/>}/>
+      <Route path="/charger/charge-delete" element={<ChargerDeleteService/>}/>
+      <Route path="/pay" element={<InsurancePayServiceHome/>}/>
+      <Route path="/pay/calculation" element={<CalculationService/>}/>
+      <Route path="/pay/payment" element={<PaymentService/>}/>
+      <Route path="/pay/paycheck" element={<PaycheckService/>}/>
     </Routes>
   </BrowserRouter>
   </div>

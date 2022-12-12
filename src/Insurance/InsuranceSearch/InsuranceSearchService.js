@@ -1,10 +1,12 @@
-import React, {useState} from "react";
-import InsuranceInfo from "./InsuranceInfo";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {Button} from "react-bootstrap";
+import InsuranceInfo from "./InsuranceInfo";
 
 function InsuranceSearchService(){
     const [id, setId] = useState('');
     let [modal, setModal] = useState(false);
+    const [btnDisable, setBtnDisable] = useState(true);
 
     const onChange = (e) => {
         setId(e.target.value);
@@ -21,19 +23,26 @@ function InsuranceSearchService(){
         }
     }
 
+    useEffect(()=>{
+        if(id>0) setBtnDisable(false)
+        else setBtnDisable(true)
+    },[id]);
+
     return (
-        <div>
-            <h1>보험정보  조회서비스</h1>
-            <input onChange={onChange} value={id} placeholder="보험 ID를 입력하세요" type='number'/>
-            <button onClick={()=>{
-                setModal(!modal);
-                onReset();
-            }}>{btnTextChanger()}</button>
+        <div style={{display:"flex", flexDirection:"column"}}>
+            <div style={{display:"flex", justifyContent:"center"}}>
+                <input onChange={onChange} value={id} className="inputStyle"
+                       placeholder="보험 ID를 입력하세요" type='number'/>
+                <Button variant="search" className="SearchBtn" disabled={btnDisable}
+                        onClick={()=>{
+                            setModal(!modal);
+                            onReset();
+                        }}
+                >{btnTextChanger()}</Button>
+            </div>
             {modal === true ? <InsuranceInfo id={id}/> : null}
-            <Link to="/insurance">
-                <button>보험관리서비스 홈으로</button>
-            </Link>
         </div>
+
     );
 }
 

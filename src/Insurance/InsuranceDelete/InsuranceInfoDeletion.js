@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, rate, compensation, permission}) {
-
+function InsuranceInfoDeletion({id}) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [errMsg, setErrMsg] = useState(null);
@@ -11,28 +10,18 @@ function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, 
     useEffect(() => {
         const fetchIns = async () => {
             try {
+                // 요청이 시작 할 때에는 error 와 users 를 초기화하고
                 setError(null);
+                // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
-
                 const timer = setInterval(()=>{
                     setConnectTimer(connectTimer => connectTimer+1);
                 }, 1000);
-
-                const response = await axios.post(
-                    `http://localhost:8080/insurance/insinfo/enrollment`, {
-                        ins_NM : ins_NM,
-                        department : department,
-                        target_Cust : target_Cust,
-                        detail : detail,
-                        insFee : insFee,
-                        rate : rate,
-                        compensation : compensation,
-                        permission : permission
-                    }
+                const response = await axios.delete(
+                    `http://localhost:8080/insurance/insinfo/deletion/${id}`
                 );
-                console.log(response);
+                console.log(response.status);
             } catch (e) {
-                console.log(e.response.data);
                 setError(e);
                 setErrMsg("ERR_CODE : " + e.response.data.code+ "\n"+
                     "ERR_MESSAGE : " + e.response.data.message + "\n"+
@@ -58,7 +47,10 @@ function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, 
         </div>);
         ;
     }
-    return <div>보험정보 등록이 완료되었습니다.<br/>추가 등록을 원하시면 초기화 버튼을 눌러주세요</div>
+
+    return (
+        <p>삭제가 완료되었습니다</p>
+    );
 }
 
-export default InsuranceInfoEnroll;
+export default InsuranceInfoDeletion;

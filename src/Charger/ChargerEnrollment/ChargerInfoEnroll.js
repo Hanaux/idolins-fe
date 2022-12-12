@@ -1,33 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, rate, compensation, permission}) {
+function ChargerInfoEnroll ({custID, ins_ID, lossAmountHuman, lossAmountProperty}) {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [errMsg, setErrMsg] = useState(null);
     const [connectTimer, setConnectTimer] = useState(0);
-
+    console.log({custID, ins_ID, lossAmountHuman, lossAmountProperty})
     useEffect(() => {
-        const fetchIns = async () => {
+        const fetchCharger = async () => {
             try {
                 setError(null);
                 setLoading(true);
-
                 const timer = setInterval(()=>{
                     setConnectTimer(connectTimer => connectTimer+1);
                 }, 1000);
 
                 const response = await axios.post(
-                    `http://localhost:8080/insurance/insinfo/enrollment`, {
-                        ins_NM : ins_NM,
-                        department : department,
-                        target_Cust : target_Cust,
-                        detail : detail,
-                        insFee : insFee,
-                        rate : rate,
-                        compensation : compensation,
-                        permission : permission
+                    `http://localhost:8080/Charger/chargerinfo/enrollment`,
+                    {
+                        custID : custID,
+                        ins_ID : ins_ID,
+                        lossAmountHuman : lossAmountHuman,
+                        lossAmountProperty : lossAmountProperty
                     }
                 );
                 console.log(response);
@@ -41,9 +37,10 @@ function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, 
                 );
             }
             setLoading(false);
+
         };
 
-        fetchIns();
+        fetchCharger();
     }, []);
 
     if (loading)
@@ -54,11 +51,12 @@ function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, 
     if (error !== null && error.data !==null){
         return ( <div>
             <div className="ErrStatus">{errMsg}</div>
-            <div>해당정보에 일치하는 보험의 정보가 없습니다.</div>
+            <div>해당정보에 일치하는 청구 정보가 없습니다.</div>
         </div>);
         ;
     }
-    return <div>보험정보 등록이 완료되었습니다.<br/>추가 등록을 원하시면 초기화 버튼을 눌러주세요</div>
+
+    return <div>청구정보 등록이 완료되었습니다.<br/>추가 등록을 원하시면 초기화 버튼을 눌러주세요</div>
 }
 
-export default InsuranceInfoEnroll;
+export default ChargerInfoEnroll;

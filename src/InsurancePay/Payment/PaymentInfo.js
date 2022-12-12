@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Table} from "react-bootstrap";
 
-function InsuranceInfo({id}) {
-    const [ins, setIns] = useState(null);
+function PaymentInfo({id}) {
+    const [payment, setPayment] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [errMsg, setErrMsg] = useState(null);
     const [connectTimer, setConnectTimer] = useState(0);
+
     useEffect(() => {
-        const fetchIns = async () => {
+        const fetchPayment = async () => {
             try {
                 // 요청이 시작 할 때에는 error 와 users 를 초기화하고
                 setError(null);
-                setIns(null);
+                setPayment(null);
                 // loading 상태를 true 로 바꿉니다.
                 setLoading(true);
 
@@ -21,11 +22,11 @@ function InsuranceInfo({id}) {
                     setConnectTimer(connectTimer => connectTimer+1);
                 }, 1000);
 
-                const insurance = await axios.get(
-                    `http://localhost:8080/insurance/insinfo/${id}`
+                const response = await axios.get(
+                    `http://localhost:8080/Payment/paymentinfo/${id}`
                 );
-                console.log(insurance);
-                setIns(insurance.data); // 데이터는 response.data 안에 들어있습니다.
+                console.log(response);
+                setPayment(response.data); // 데이터는 response.data 안에 들어있습니다.
             } catch (e) {
                 console.log(e.response.data);
                 setError(e);
@@ -38,7 +39,7 @@ function InsuranceInfo({id}) {
             setLoading(false);
         };
 
-        fetchIns();
+        fetchPayment();
     }, []);
 
     if (loading)
@@ -54,43 +55,31 @@ function InsuranceInfo({id}) {
         ;
     }
 
-    if (!ins) return null;
-
+    if (!payment) return null;
+    console.log(payment);
     return (
 
         <Table bordered hover className="TableStyleSearch">
             <tbody>
                 <tr>
-                    <td> 보험 이름 </td>
-                    <td>{ins.ins_NM}</td>
+                    <td> 산출 ID </td>
+                    <td>{payment.docID}</td>
                 </tr>
                 <tr>
-                    <td> 보험 담당 부서 </td>
-                    <td>{ins.department}</td>
+                    <td> 날짜 </td>
+                    <td>{payment.date}</td>
                 </tr>
                 <tr>
-                    <td> 보험 고객층 </td>
-                    <td>{ins.target_Cust}</td>
+                    <td> 사고번호 </td>
+                    <td>{payment.accNum}</td>
                 </tr>
                 <tr>
-                    <td> 보험 세부정보 </td>
-                    <td>{ins.detail}</td>
+                    <td> 청구번호 </td>
+                    <td>{payment.chargerNum}</td>
                 </tr>
                 <tr>
-                    <td> 보험료 </td>
-                    <td>{ins.insFee}</td>
-                </tr>
-                <tr>
-                    <td> 보험 비율 </td>
-                    <td>{ins.rate}</td>
-                </tr>
-                <tr>
-                    <td> 보험 보상 </td>
-                    <td>{ins.compensation}</td>
-                </tr>
-                <tr>
-                    <td> 보험 허용 </td>
-                    <td>{ins.permission}</td>
+                    <td> 고객 ID </td>
+                    <td>{payment.custID}</td>
                 </tr>
             </tbody>
 
@@ -98,4 +87,4 @@ function InsuranceInfo({id}) {
     );
 }
 
-export default InsuranceInfo;
+export default PaymentInfo;
