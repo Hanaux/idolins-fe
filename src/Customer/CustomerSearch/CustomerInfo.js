@@ -22,7 +22,7 @@ function CustomerInfo({id}) {
                 }, 1000);
 
                 const cust = await axios.get(
-                    `http://localhost:8080/customer/custinfo/${id}`
+                    `http://52.78.47.54:8080/customer/custinfo/${id}`
                 );
                 console.log(cust);
                 setUsers(cust.data); // 데이터는 response.data 안에 들어있습니다.

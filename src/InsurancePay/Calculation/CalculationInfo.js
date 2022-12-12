@@ -21,7 +21,7 @@ function CalculationInfo({id}) {
                 }, 1000);
 
                 const cal = await axios.get(
-                    `http://localhost:8080/Calculation/calculationinfo/${id}`
+                    `http://52.78.47.54:8080/Calculation/calculationinfo/${id}`
                 );
                 console.log(cal);
                 setCalculation(cal.data);

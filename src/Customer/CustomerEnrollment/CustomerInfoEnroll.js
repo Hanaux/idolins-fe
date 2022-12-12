@@ -17,7 +17,7 @@ function CustomerInfoEnroll({cust_NM, ssn, cust_PN, sex, acc_NM}) {
                     setConnectTimer(connectTimer => connectTimer+1);
                 }, 1000);
 
-                const response = await axios.post('http://localhost:8080/customer/custinfo/enrollment', {
+                const response = await axios.post('http://52.78.47.54:8080/customer/custinfo/enrollment', {
                     acc_NM: acc_NM,
                         sex: sex,
                         ssn: ssn,

@@ -19,7 +19,7 @@ function CalcluationInfoEnroll ({accNum, decisionCompensationProperty, decisionC
                 }, 1000);
 
                 const response = await axios.post(
-                    `http://localhost:8080/Calculation/calculationinfo/enrollment`, {
+                    `http://52.78.47.54:8080/Calculation/calculationinfo/enrollment`, {
                         accident_NM : accNum,
                         decisionCompensationProperty : decisionCompensationProperty,
                         decisionCompensationHuman : decisionCompensationHuman

@@ -21,7 +21,7 @@ function CustomerInfoDeletion({id}) {
                 }, 1000);
 
                 const response = await axios.delete(
-                    `http://localhost:8080/customer/custinfo/deletion/${id}`
+                    `http://52.78.47.54:8080/customer/custinfo/deletion/${id}`
                 );
                 console.log(response.data);
                 // console.log(users);

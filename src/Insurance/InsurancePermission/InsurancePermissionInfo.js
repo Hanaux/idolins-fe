@@ -17,7 +17,7 @@ function InsurancePermissionInfo({id, permission}) {
                 setError(null);
                 setLoading(true);
                 const response = await axios.put(
-                    `http://localhost:8080/insurance/insinfo/permission`,
+                    `http://52.78.47.54:8080/insurance/insinfo/permission`,
                     {
                         ins_ID: id,
                         permission: permission,

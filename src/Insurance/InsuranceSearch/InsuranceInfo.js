@@ -22,7 +22,7 @@ function InsuranceInfo({id}) {
                 }, 1000);
 
                 const insurance = await axios.get(
-                    `http://localhost:8080/insurance/insinfo/${id}`
+                    `http://52.78.47.54:8080/insurance/insinfo/${id}`
                 );
                 console.log(insurance);
                 setIns(insurance.data); // 데이터는 response.data 안에 들어있습니다.

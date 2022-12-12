@@ -19,7 +19,7 @@ function PaycheckInfoEnroll ({payID, paymentReportOK, paymentCompleted}) {
                 }, 1000);
 
                 const response = await axios.post(
-                    `http://localhost:8080/Paycheck/paycheckinfo/enrollment`, {
+                    `http://52.78.47.54:8080/Paycheck/paycheckinfo/enrollment`, {
                         payID : payID,
                         paymentReportOK : paymentReportOK,
                         paymentCompleted : paymentCompleted

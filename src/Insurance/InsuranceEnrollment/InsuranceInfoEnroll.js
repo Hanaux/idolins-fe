@@ -19,7 +19,7 @@ function InsuranceInfoEnroll ({ins_NM, department, target_Cust, detail, insFee, 
                 }, 1000);
 
                 const response = await axios.post(
-                    `http://localhost:8080/insurance/insinfo/enrollment`, {
+                    `http://52.78.47.54:8080/insurance/insinfo/enrollment`, {
                         ins_NM : ins_NM,
                         department : department,
                         target_Cust : target_Cust,

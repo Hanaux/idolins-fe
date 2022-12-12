@@ -18,7 +18,7 @@ function ChargerInfoEnroll ({custID, ins_ID, lossAmountHuman, lossAmountProperty
                 }, 1000);
 
                 const response = await axios.post(
-                    `http://localhost:8080/Charger/chargerinfo/enrollment`,
+                    `http://52.78.47.54:8080/Charger/chargerinfo/enrollment`,
                     {
                         custID : custID,
                         ins_ID : ins_ID,

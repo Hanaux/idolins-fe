@@ -19,7 +19,7 @@ function PaymentInfoEnroll ({date, accNum, chargerNum, custID, docID}) {
                 }, 1000);
 
                 const response = await axios.post(
-                    `http://localhost:8080/Payment/paymentinfo/enrollment`, {
+                    `http://52.78.47.54:8080/Payment/paymentinfo/enrollment`, {
                     docID : docID,
                     date  : date,
                     accNum : accNum,

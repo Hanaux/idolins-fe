@@ -23,7 +23,7 @@ function PaymentInfo({id}) {
                 }, 1000);
 
                 const response = await axios.get(
-                    `http://localhost:8080/Payment/paymentinfo/${id}`
+                    `http://52.78.47.54:8080/Payment/paymentinfo/${id}`
                 );
                 console.log(response);
                 setPayment(response.data); // 데이터는 response.data 안에 들어있습니다.

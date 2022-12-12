@@ -18,7 +18,7 @@ function InsuranceInfoDeletion({id}) {
                     setConnectTimer(connectTimer => connectTimer+1);
                 }, 1000);
                 const response = await axios.delete(
-                    `http://localhost:8080/insurance/insinfo/deletion/${id}`
+                    `http://52.78.47.54:8080/insurance/insinfo/deletion/${id}`
                 );
                 console.log(response.status);
             } catch (e) {

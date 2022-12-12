@@ -17,7 +17,7 @@ function CustomerInfoUpdate({id, name}){
             try{
                 setError(null);
                 setLoading(true);
-                const response = await axios.put('http://localhost:8080/customer/custinfo/modification', {
+                const response = await axios.put('http://52.78.47.54:8080/customer/custinfo/modification', {
                     cust_ID: id,
                     cust_NM: name,
                 });
