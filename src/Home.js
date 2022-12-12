@@ -17,6 +17,7 @@ function Home () {
                     <ButtonGroup vertical>
                         <Button href="/insurance" variant="flat">보험관리서비스</Button>
                         <Button href="/customer" variant="flat">고객관리서비스</Button>
+                        <Button href="/contractor" variant="flat">계약관리서비스</Button>
                         <Button href="/who-r-we" variant="flat-over">Info</Button>
                     </ButtonGroup>
                 </div>

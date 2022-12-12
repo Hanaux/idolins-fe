@@ -11,6 +11,12 @@ import InsuranceServiceHome from "./Insurance/InsuranceServiceHome";
 import InsuranceEnrollService from "./Insurance/InsuranceEnrollment/InsuranceEnrollService";
 import InsurancePermissionService from "./Insurance/InsurancePermission/InsurancePermissionService";
 import InsuranceDeleteService from "./Insurance/InsuranceDelete/InsuranceDeleteService";
+import ContractorServiceHome from "./Contractor/ContractorServiceHome";
+import ContractorEnrollService from "./Contractor/ContractorEnrollment/ContractorEnrollService";
+import ContractorSearchService from "./Contractor/ContractorSearch/ContractorSearchService";
+import ContractorDeleteService from "./Contractor/ContractorDeletion/ContractorDeletionService";
+import UnderWriteService from './Contractor/UnderWrite/UnderWriteService';
+
 import WhoAreWe from "./WhoAreWe";
 function App() {
   return (
@@ -28,6 +34,12 @@ function App() {
       <Route path="/insurance/ins-enrollment" element={<InsuranceEnrollService/>}/>
       <Route path="/insurance/ins-permission" element={<InsurancePermissionService/>}/>
       <Route path="/insurance/ins-delete" element={<InsuranceDeleteService/>}/>
+      <Route path="/contractor" element={<ContractorServiceHome/>}/>
+      <Route path="/contractor/cont-search" element={<ContractorSearchService/>} />
+      <Route path="/contractor/cont-enrollment" element={<ContractorEnrollService/>}/>
+      <Route path="/contractor/cont-deletion" element={<ContractorDeleteService/>}/>
+      {/* <Route path="/contractor/cont-modify" element={<Contrac/>}/> */}
+      <Route path="/contractor/underwrite" element={<UnderWriteService/>}/>
     </Routes>
   </BrowserRouter>
   </div>
