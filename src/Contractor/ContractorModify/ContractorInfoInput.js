@@ -68,13 +68,13 @@ function ContractorInfoInput({cont_ID_, cont_Start_, cont_Fin_, cust_ID_, ins_ID
         if(doModify == true) {
             if(contStart != null) setData({_contStart : contStart});
             // if(contStart == null) contStart = cont_Start_;
-            if(contFin != null) setData({...data, _contFin : contFin});
-            if(custID != null) setData({...data, _custID : custID});
-            if(insID != null) setData({...data, _insID : insID});
-            if(payDay != null) setData({...data, _payDay : payDay});
-            if(installmentMonth == null) setData({...data, _installmentMonth : installmentMonth});
-            if(lastMonth != null) setData({...data, _lastMonth : lastMonth});
-            if(installmentStart != null) setData({...data, _installmentStart : installmentStart});
+            if(contFin != null) setData({_contFin : contFin});
+            if(custID != null) setData({_custID : custID});
+            if(insID != null) setData({_insID : insID});
+            if(payDay != null) setData({_payDay : payDay});
+            if(installmentMonth == null) setData({_installmentMonth : installmentMonth});
+            if(lastMonth != null) setData({_lastMonth : lastMonth});
+            if(installmentStart != null) setData({_installmentStart : installmentStart});
         }
     }
 
