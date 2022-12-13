@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ContractorInfo from "./ContractorInfoForModify";
+import ContractorInfoForModify from "./ContractorInfoForModify";
 
 function ContractorList({id}) {
     const [cont, setCont] = useState(null);
@@ -10,6 +10,13 @@ function ContractorList({id}) {
     const [connectTimer, setConnectTimer] = useState(0);
 
     const [contractorID, setContractorID] = useState(null);
+    const [on, setOn] = useState(false);
+
+    const onClickContractorID = (e) => {
+        const{value} = e.target;
+        setContractorID(value);
+        setOn(!on);
+    }
 
     useEffect(() => {
         const fetchCont = async () => {
@@ -66,25 +73,28 @@ function ContractorList({id}) {
     // if (error) return <div>에러가 발생했습니다</div>;
     // if (!cont) return null;
     // console.log(cont);
-    const conts = cont.data.split(" ");
+    const conts = cont.split(" ");
+    conts.pop();
     return (
         <div>
+            <p>수정을 원하는 계약 ID를 선택하세요</p>
             <table>
                 <tbody>
-                    {conts.map((item) => {
-                        return(
-                            <tr>
-                            <td>
-                                <button onClick={()=>setContractorID(item)}>
-                                    {item}
-                                </button>
-                            </td>
-                        </tr>
-                        );
-                    })}
+                    <tr>
+                        {/* <td>{cont}</td> */}
+                        {conts.map((item) => {
+                            return(
+                                <td>
+                                    <button onClick={onClickContractorID} value={item}>
+                                        {item}
+                                    </button>
+                                </td>
+                            );
+                        })}
+                    </tr>
                 </tbody>
             </table>
-            {contractorID == 0 ? null : <ContractorInfo id={contractorID}/>}
+            {on == true  ? <ContractorInfoForModify id={contractorID}/> : null}
             {/* <table>
                 <tbody>
                     <tr>

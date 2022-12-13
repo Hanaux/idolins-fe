@@ -15,6 +15,7 @@ import ContractorServiceHome from "./Contractor/ContractorServiceHome";
 import ContractorEnrollService from "./Contractor/ContractorEnrollment/ContractorEnrollService";
 import ContractorSearchService from "./Contractor/ContractorSearch/ContractorSearchService";
 import ContractorDeleteService from "./Contractor/ContractorDeletion/ContractorDeletionService";
+import ContractorModifyService from "./Contractor/ContractorModify/ContractorModifyService";
 import UnderWriteService from './Contractor/UnderWrite/UnderWriteService';
 import WhoAreWe from "./WhoAreWe";
 function App() {
@@ -37,7 +38,7 @@ function App() {
       <Route path="/contractor/cont-search" element={<ContractorSearchService/>} />
       <Route path="/contractor/cont-enrollment" element={<ContractorEnrollService/>}/>
       <Route path="/contractor/cont-deletion" element={<ContractorDeleteService/>}/>
-      {/* <Route path="/contractor/cont-modify" element={<Contrac/>}/> */}
+      <Route path="/contractor/cont-modify" element={<ContractorModifyService/>}/>
       <Route path="/contractor/underwrite" element={<UnderWriteService/>}/>
     </Routes>
   </BrowserRouter>
